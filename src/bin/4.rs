@@ -5,7 +5,7 @@ fn main() {
     const MAX: u64 = 999;
 
     let result = (MIN..=MAX).flat_map(|x| (x..=MAX).map(move |y| x * y))
-        .filter(|&num| is_palindrome(num))
+        .filter(|&num| is_palindrome(num, 10))
         .max()
         .unwrap();
     

@@ -26,10 +26,10 @@ pub fn factorial(val: u64) -> u64 {
     result
 }
 
-pub fn is_palindrome(val: u64) -> bool {
-    let digits = get_len_base(val, 10) as u32;
+pub fn is_palindrome(val: u64, base: u64) -> bool {
+    let digits = get_len_base(val, base) as u32;
     for i in 0..digits/2 {
-        if (val / 10u64.pow(i)) % 10 != (val / 10u64.pow(digits - i - 1)) % 10 {
+        if (val / base.pow(i)) % base != (val / base.pow(digits - i - 1)) % base {
             // No good
             return false;
         }

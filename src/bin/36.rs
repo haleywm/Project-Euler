@@ -1,4 +1,4 @@
-use euler::{get_len_base, is_palindrome};
+use euler::is_palindrome;
 
 fn main() {
     // Generating all binary palindromes and then seeing if they're also regular palindromes
@@ -7,6 +7,13 @@ fn main() {
 
     let mut total = 0;
 
+    for test in 1..=MAX {
+        if is_palindrome(test, 10) && is_palindrome(test, 2) {
+            total += test;
+        }
+    }
+
+    /*
     let mut num = 1;
     'full_loop: loop {
         let len = get_len_base(num, 2);
@@ -14,7 +21,7 @@ fn main() {
         'zero_loop: loop {
             let mut new_num = num;
             for offset in 0..=len {
-                new_num |= ((num >> offset) & 1) << len + offset + mid_zeroes;
+                new_num |= ((num >> offset) & 1) << (len + offset + mid_zeroes);
             }
             if new_num >= MAX {
                 if mid_zeroes == 0 {
@@ -27,7 +34,7 @@ fn main() {
                 }
             }
             // Testing number
-            if is_palindrome(new_num) {
+            if is_palindrome(new_num, 10) {
                 //println!("{}", new_num);
                 total += new_num;
             }
@@ -37,6 +44,7 @@ fn main() {
         
         num += 2;
     }
+    */
 
     println!("{}", total);
 }
